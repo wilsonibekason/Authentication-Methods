@@ -12,7 +12,7 @@ let urlencodedParser = bodyParser.urlencoded({ extended: false });
 
 // Import routes from controllers folder and use them as endpoints on the server (e.g., /api/<controller>)
 const authRoutes = require("./routes/auth");
-const facialRoutes = require("./routes/facial");
+const facialRoutes = require("./routes/facialmain");
 const patternRoutes = require("./routes/pattern");
 
 // Load face-api.js models
@@ -23,7 +23,7 @@ faceapi.nets.ssdMobilenetv1.loadFromDisk(MODEL_PATH);
 faceapi.nets.faceLandmark68Net.loadFromDisk(MODEL_PATH);
 faceapi.nets.faceRecognitionNet.loadFromDisk(MODEL_PATH);
 
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8000;
 
 // Middleware for parsing JSON requests should come before defining routes
 app.use(express.json());
