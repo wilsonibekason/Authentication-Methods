@@ -6,6 +6,8 @@ const path = require("path");
 require("dotenv").config();
 const canvas = require("canvas");
 const faceapi = require("face-api.js");
+// const passport = require("passport");
+// const WebAuthnStrategy = require("@webauthn/server");
 
 var bodyParser = require("body-parser");
 let urlencodedParser = bodyParser.urlencoded({ extended: false });
@@ -14,6 +16,29 @@ let urlencodedParser = bodyParser.urlencoded({ extended: false });
 const authRoutes = require("./routes/auth");
 const facialRoutes = require("./routes/facialmain");
 const patternRoutes = require("./routes/pattern");
+
+// Initialize Passport
+// app.use(passport.initialize());
+
+// // Set up WebAuthn strategy
+// passport.use(
+//   "webauthn",
+//   new WebAuthnStrategy(
+//     {
+//       // Define your WebAuthn strategy options here
+//       // For example, you can specify a function to verify credentials
+//       // or options for your authentication process.
+//     },
+//     (user, done) => {
+//       // Check if user exists and return success or failure accordingly
+//       if (user) {
+//         return done(null, user);
+//       } else {
+//         return done(null, false);
+//       }
+//     }
+//   )
+// );
 
 // Load face-api.js models
 const { Canvas, Image, ImageData } = canvas;
